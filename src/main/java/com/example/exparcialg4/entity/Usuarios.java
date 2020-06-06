@@ -1,13 +1,10 @@
 package com.example.exparcialg4.entity;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
-
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class usuarios {
+public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idusuarios;

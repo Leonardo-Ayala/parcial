@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class productos {
+@Table(name="products")
+public class Productos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idproductos;

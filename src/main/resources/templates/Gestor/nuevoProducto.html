@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <head th:replace="fragments/navbar.html :: header( title = 'Productos')"></head>
 </head>
 <body>
+<div class="container">
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Productos')"></nav>
         <h2>Nuevo Producto</h2>
         <hr/>
         <form method="post" th:action="@{'/productos/guardar'}">
@@ -31,6 +32,7 @@
             <a th:href="@{'/productos'}" class="btn btn-danger">Cancelar</a>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
+</div>
 
 </body>
 </html>

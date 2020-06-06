@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="header (title)">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
@@ -19,15 +19,28 @@
                     <a class="navbar-brand" href="#">BAR VEIDER</a>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item" th:classappend="${active == 'Productos'?'active':''}">
-                            <a class="nav-link" th:href="@{/listaProductos}">Productos</a>
+                            <a class="nav-link" th:href="@{/}">Productos</a>
                         </li>
-                        <li class="nav-item" th:classappend="${active == 'Pedidos'?'active':''}">
+                        <li sec:authorize="hasAnyAuthority('gestor','admin','registrado')" class="nav-item" th:classappend="${active == 'Pedidos'?'active':''}">
                             <a class="nav-link"  th:href="@{/pedidos}">Mis Pedidos</a>
                         </li>
-                        <li class="nav-item" th:classappend="${active == 'Carrito'?'active':''}">
+                        <li sec:authorize="hasAnyAuthority('gestor','admin','registrado')" class="nav-item" th:classappend="${active == 'Carrito'?'active':''}">
                             <a class="nav-link" th:href="@{/carrito}">Carrito</a>
                         </li>
+                        <li sec:authorize="hasAnyAuthority('gestor','admin')" class="nav-item" th:classappend="${active == 'Editar Productos'?'active':''}">
+                            <a class="nav-link" th:href="@{/productos}">Editar Productos</a>
+                        </li>
                     </ul>
+                    <div sec:authorize="isAnonymous()" class="form-inline my-2 my-lg-0">
+                        <a class="nav-link" th:href="@{/loginForm}">Iniciar Sesión</a>
+                    </div>
+                    <div sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0">
+                        <span th:text="|Bienvenido ${session.usuario.nombre} ${session.usuario.apellido}|"></span>
+                        <form th:action="@{/logout}" method="post">
+                            <input class="btn btn-link" type="submit" value="(Cerrar Sesión)"/>
+                        </form>
+                    </div>
+
                 </div>
             </nav>
         </div>

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/principal")
 public class RegistradoController {
 
     @Autowired
@@ -31,7 +30,7 @@ public class RegistradoController {
             model.addAttribute("productos", opt.get());
             return "Registrado/verMas";
         }else{
-            return "redirect:/principal";
+            return "redirect:/";
         }
     }
 }

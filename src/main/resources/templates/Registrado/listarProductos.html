@@ -26,9 +26,9 @@
             <td th:text="${producto.nombre}"></td>
             <td th:text="${producto.precio}"></td>
             <td th:text="${producto.stock}"></td>
-            <td><a class="btn btn-primary" th:href="@{'/principal/verMas' + '?id=' + ${producto.idproductos}}">Ver Mas</a>
+            <td><a class="btn btn-primary" th:href="@{'/verMas' + '?id=' + ${producto.idproductos}}">Ver Mas</a>
             </td>
-            <td><a class="btn btn-danger" th:href="@{'/principal/agregarCarrito' + '?id=' + ${producto.idproductos}}">Agregar al carrito</a>
+            <td><a class="btn btn-danger" th:href="@{'/agregarCarrito' + '?id=' + ${producto.idproductos}}">Agregar al carrito</a>
             </td>
         </tr>
         </tbody>

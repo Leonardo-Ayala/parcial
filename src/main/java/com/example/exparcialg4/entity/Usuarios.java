@@ -1,14 +1,15 @@
 package com.example.exparcialg4.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="usuarios")
-public class Usuarios {
+public class Usuarios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idusuarios;
-    private String roles;
+    private String rol;
     private String nombre;
     private String apellido;
 
@@ -20,12 +21,12 @@ public class Usuarios {
         this.idusuarios = idusuarios;
     }
 
-    public String getRoles() {
-        return roles;
+    public String getRol() {
+        return rol;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     public String getNombre() {
@@ -44,12 +45,12 @@ public class Usuarios {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDni() {
@@ -60,15 +61,15 @@ public class Usuarios {
         this.dni = dni;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
-    private String correo;
+    private String email;
     private String dni;
-    private String password;
+    private String pwd;
 }

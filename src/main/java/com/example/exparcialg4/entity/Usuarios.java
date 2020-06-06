@@ -1,9 +1,12 @@
 package com.example.exparcialg4.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
+@Table(name="usuarios")
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -19,15 +19,15 @@ public class Detalle {
     private BigDecimal preciototal;
 
     @ManyToOne
-    @JoinColumn(name = "pedidos")
+    @JoinColumn(name = "pedidos_idpedidos")
     private Pedidos pedidos;
 
     @ManyToOne
-    @JoinColumn(name = "carrito")
+    @JoinColumn(name = "carrito_idcarrito")
     private Carrito carrito;
 
     @ManyToOne
-    @JoinColumn(name = "productos")
+    @JoinColumn(name = "productos_idproductos")
     private Productos productos;
 
 

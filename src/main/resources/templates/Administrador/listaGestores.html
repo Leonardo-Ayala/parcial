@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/navbar.html :: header( title = 'Productos')"></head>
+<body>
+<div class="container">
+    <!--  <nav th:replace="fragments/navbar.html :: navbar( active = 'Productos')"></nav>  -->
+    <br>
+    <h2>Lista de Gestores</h2>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/admin/nuevoGestor'}">Nuevo Gestor</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Dni</th>
+            <th>Correo</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="usuarios, info : ${listaGestores}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${usuarios.nombre}"></td>
+            <td th:text="${usuarios.apellido}"></td>
+            <td th:text="${usuarios.dni}"></td>
+            <td th:text="${usuarios.email}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/admin/editarGestor' + '?idusuarios=' + ${usuarios.idusuarios}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger" th:href="@{'/admin/borrarGestor' + '?idusuarios=' + ${usuarios.idusuarios}}">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

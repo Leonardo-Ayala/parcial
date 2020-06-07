@@ -12,6 +12,15 @@ public class Usuarios implements Serializable {
     private String rol;
     private String nombre;
     private String apellido;
+    private int activo;
+
+    public int getActivo() {
+        return activo;
+    }
+
+    public void setActivo(int activo) {
+        this.activo = activo;
+    }
 
     public int getIdusuarios() {
         return idusuarios;

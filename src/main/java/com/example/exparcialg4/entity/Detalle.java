@@ -15,7 +15,7 @@ public class Detalle {
     @Column(nullable = false)
     private int cantidad;
 
-    @Digits(integer = 5, fraction = 3)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal preciototal;
 
     @ManyToOne

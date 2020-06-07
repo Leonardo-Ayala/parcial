@@ -14,7 +14,7 @@ public class Pedidos {
 
     private Date fecha;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "usuarios_idusuarios")
     private Usuarios Usuarios;
 

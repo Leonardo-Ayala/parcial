@@ -27,7 +27,7 @@ public class Carrito {
         Usuarios = usuarios;
     }
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "usuarios_idusuarios")
     private Usuarios Usuarios;
 }

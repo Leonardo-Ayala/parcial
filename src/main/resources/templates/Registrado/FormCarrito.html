@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/navbar.html :: header( title = 'Cantidad')"></head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Productos')"></nav>
+    <h2>Agregar al Carrito</h2>
+    <hr/>
+
+    <div class="form-group">
+        <h4 class="text-primary">Nombre del Producto: </h4>
+        <h4 th:text="${productos.nombre}"></h4>
+    </div>
+    <div class="form-group">
+        <h4 class="text-primary">Precio unitario: S/. </h4>
+        <h4 th:text="${productos.precio}"></h4>
+    </div>
+    <div class="form-group">
+        <h4 class="text-primary">Stock: </h4>
+        <h4 th:text="${productos.stock}"></h4>
+    </div>
+
+    <form method="post" th:action="@{'/agregarAlCarrito'}">
+
+        <div class="form-group">
+            <input th:value="${productos.idproductos}" name="idproductos" type="hidden"/>
+            <label for="cantidad">Cantidad a Agregar</label>
+            <input type="number" class="form-control" name="cantidad" id="cantidad">
+        </div>
+        <a th:href="@{'/'}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
+</body>
+</html>

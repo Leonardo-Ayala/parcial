@@ -10,29 +10,27 @@
     <table class="table">
         <thead>
         <tr>
-            <th>#</th>
             <th>Codigo Producto</th>
             <th>Nombre</th>
             <th>Precio</th>
-            <th>Stock</th>
-            <th></th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="producto, info : ${listaProductos}">
-            <td th:text="${info.index + 1}"></td>
-            <td th:text="${producto.codigo}"></td>
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-            <td th:text="${producto.stock}"></td>
-            <td><a class="btn btn-primary" th:href="@{'/verMas' + '?id=' + ${producto.idproductos}}">Ver Mas</a>
-            </td>
-            <td><a class="btn btn-danger" th:href="@{'/agregarCarrito' + '?id=' + ${producto.idproductos}}">Agregar al carrito</a>
-            </td>
+        <tr th:each="detalle: ${session.listadetalle}" >
+            <td th:text="${detalle.productos.codigo}"></td>
+            <td th:text="${detalle.productos.nombre}"></td>
+            <td th:text="${detalle.productos.precio}"></td>
+            <td th:text="${detalle.cantidad}"></td>
+            <td th:text="${detalle.preciototal}"></td>
+            <td></td>
         </tr>
         </tbody>
     </table>
+    <h4 th:text="|Monto Total S/. ${session.precioTotal}|"></h4>
+    <a class="btn btn-primary" th:href="@{'/Pagar'}">Pagar</a>
 </div>
 </body>
 </html>

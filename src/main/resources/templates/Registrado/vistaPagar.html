@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="fragments/navbar.html :: header( title = 'Carrito')"></head>
+</head>
+<body>
+<div class="container">
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Productos')"></nav>
+    <h2>Check out</h2>
+    <hr/>
+
+    <div class="form-group">
+        <h4 th:text="|Monto Total S/. ${session.precioTotal}|"></h4>
+    </div>
+    <div class="form-group">
+        <h4 class="text-primary">Datos de Pago:</h4>
+
+    </div>
+
+    <form method="post" th:action="@{'/ConfirmarPago'}">
+        <div class="form-group">
+
+            <label for="tarjeta">Tarjeta de Credito:</label>
+            <input type="number" class="form-control" name="tarjeta" id="tarjeta">
+        </div>
+        <div th:if="${msg != null}" th:text="${msg}" class="alert alert-danger" role="alert"></div>
+        <a th:href="@{'/'}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Pagar</button>
+    </form>
+</div>
+
+</body>
+</html>

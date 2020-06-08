@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <head th:replace="fragments/navbar.html :: header( title = 'Productos')"></head>
+    <head th:replace="fragments/navbar.html :: header( title = 'Pedidos')"></head>
 </head>
 <body>
+
 <div class="container">
-    <nav th:replace="fragments/navbar.html :: navbar( active = 'Productos')"></nav>
-    <h2>Lista de Productos</h2>
+    <nav th:replace="fragments/navbar.html :: navbar( active = 'Pedidos')"></nav>
+    <h2>Lista de Pedidos</h2>
     <table class="table">
         <thead>
         <tr>
@@ -34,5 +35,6 @@
         </tbody>
     </table>
 </div>
+
 </body>
 </html>

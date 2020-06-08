@@ -1,11 +1,12 @@
 package com.example.exparcialg4.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name="productos")
-public class Productos {
+public class Productos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idproductos;

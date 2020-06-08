@@ -29,7 +29,7 @@
         <h4 th:text="${productos.descripcion}"></h4>
     </div>
     <a th:href="@{'/'}" class="btn btn-danger">Regresar</a>
-    <a class="btn btn-primary" th:href="@{'/agregarCarrito' + '?id=' + ${productos.idproductos}}">Agregar al carrito</a>
+    <a class="btn btn-primary" th:href="@{'/FormCarrito' + '?id=' + ${productos.idproductos}}">Agregar al carrito</a>
 </div>
 </body>
 </html>

@@ -20,14 +20,14 @@ public class Carrito {
     }
 
     public com.example.exparcialg4.entity.Usuarios getUsuarios() {
-        return Usuarios;
+        return usuarios;
     }
 
     public void setUsuarios(com.example.exparcialg4.entity.Usuarios usuarios) {
-        Usuarios = usuarios;
+        this.usuarios = usuarios;
     }
 
     @OneToOne
     @JoinColumn(name = "usuarios_idusuarios")
-    private Usuarios Usuarios;
+    private Usuarios usuarios;
 }
